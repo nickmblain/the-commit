@@ -8,9 +8,7 @@ const { articles } = useArticles()
 
 <template>
   <main id="main-content">
-    <div class="container">
-      <HeroSection />
-    </div>
+    <HeroSection />
 
     <section class="articles-section" aria-labelledby="articles-heading">
       <div class="container">
@@ -37,6 +35,7 @@ const { articles } = useArticles()
 
 <style scoped>
 .articles-section {
+  padding-top: var(--space-9);
   padding-bottom: var(--space-9);
 }
 

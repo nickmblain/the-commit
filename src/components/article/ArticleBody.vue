@@ -34,6 +34,11 @@ const props = defineProps<{ article: Article }>()
       </ul>
 
       <hr v-else-if="block.type === 'divider'" class="section-divider" />
+
+      <details v-else-if="block.type === 'details'" class="body-details">
+        <summary class="body-details__summary">{{ block.summary }}</summary>
+        <pre class="body-details__content"><code>{{ block.content }}</code></pre>
+      </details>
     </template>
   </div>
 </template>
@@ -67,5 +72,48 @@ const props = defineProps<{ article: Article }>()
 .body-list li {
   font-size: 1.0625rem;
   line-height: 1.75;
+}
+
+.body-details {
+  border: 1px solid var(--color-border, color-mix(in srgb, var(--color-text) 15%, transparent));
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.body-details__summary {
+  padding: var(--space-3) var(--space-4);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-accent-1);
+}
+
+.body-details__summary::-webkit-details-marker {
+  display: none;
+}
+
+.body-details__summary::before {
+  content: '▶';
+  font-size: 0.625rem;
+  transition: transform 0.2s ease;
+}
+
+details[open] .body-details__summary::before {
+  transform: rotate(90deg);
+}
+
+.body-details__content {
+  margin: 0;
+  padding: var(--space-4);
+  border-top: 1px solid var(--color-border, color-mix(in srgb, var(--color-text) 15%, transparent));
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  overflow-x: auto;
+  white-space: pre;
 }
 </style>

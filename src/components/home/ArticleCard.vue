@@ -5,7 +5,8 @@ import { RouterLink } from 'vue-router'
 const props = defineProps<{ article: Article }>()
 
 function formatDate(iso: string): string {
-  return new Date(iso).toLocaleDateString('en-US', {
+  const [year, month, day] = iso.split('-').map(Number)
+  return new Date(year, month - 1, day).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',

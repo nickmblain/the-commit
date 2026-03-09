@@ -37,7 +37,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
 .hero {
   position: relative;
   overflow: hidden;
-  padding: var(--space-9) 0 var(--space-8);
+  padding: var(--space-9) var(--space-5) var(--space-8);
 }
 
 .hero__content {
@@ -45,6 +45,8 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   z-index: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: var(--space-5);
 }
 

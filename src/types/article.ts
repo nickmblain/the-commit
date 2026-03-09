@@ -1,4 +1,4 @@
-export type BlockType = 'paragraph' | 'heading' | 'code' | 'quote' | 'list' | 'divider'
+export type BlockType = 'paragraph' | 'heading' | 'code' | 'quote' | 'list' | 'divider' | 'details'
 
 export interface ArticleBlock {
   type: BlockType
@@ -6,6 +6,7 @@ export interface ArticleBlock {
   level?: 2 | 3 | 4
   language?: string
   items?: string[]
+  summary?: string
 }
 
 export interface Article {
