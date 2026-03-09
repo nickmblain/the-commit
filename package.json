@@ -4,23 +4,16 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "concurrently --names \"vue,studio\" --prefix-colors \"cyan,magenta\" \"vite\" \"npm run dev --prefix studio\"",
-    "dev:vue": "vite",
-    "dev:studio": "npm run dev --prefix studio",
+    "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview",
-    "studio:install": "npm install --prefix studio",
-    "studio:deploy": "npm run deploy --prefix studio"
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@portabletext/vue": "^1.0.14",
-    "@sanity/client": "^7.16.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-    "concurrently": "^9.2.1",
     "typescript": "^5.7.2",
     "vite": "^6.1.0",
     "vue-tsc": "^2.2.0"

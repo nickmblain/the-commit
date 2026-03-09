@@ -1,10 +1,6 @@
 node_modules/
-studio/node_modules/
 dist/
-studio/dist/
 .env
 .env.local
-studio/.env
-studio/.env.local
 .DS_Store
 *.local

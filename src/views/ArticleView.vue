@@ -9,27 +9,15 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
 const route = useRoute()
 const slug = computed(() => {
   const s = route.params['slug']
-  return Array.isArray(s) ? s[0] ?? '' : s ?? ''
+  return Array.isArray(s) ? (s[0] ?? '') : (s ?? '')
 })
 
-const { article, loading, error } = useArticle(slug.value)
+const { article } = useArticle(slug.value)
 </script>
 
 <template>
   <main id="main-content">
-    <div v-if="loading" class="loading-state container container--narrow" aria-live="polite" aria-busy="true">
-      <span class="sr-only">Loading article…</span>
-      <div class="skeleton skeleton--title" aria-hidden="true" />
-      <div class="skeleton skeleton--body" aria-hidden="true" />
-      <div class="skeleton skeleton--body" aria-hidden="true" />
-    </div>
-
-    <div v-else-if="error" class="error-state container container--narrow" role="alert">
-      <p>{{ error }}</p>
-      <RouterLink to="/" class="back-link">← Back to home</RouterLink>
-    </div>
-
-    <div v-else-if="article" class="article-page">
+    <div v-if="article" class="article-page">
       <BlobGradient variant="violet" position="top-right" size="md" :opacity="0.2" />
 
       <div class="container container--narrow article-page__inner">
@@ -84,13 +72,9 @@ const { article, loading, error } = useArticle(slug.value)
   text-decoration: none;
 }
 
-.breadcrumb__link:hover {
-  text-decoration: underline;
-}
+.breadcrumb__link:hover { text-decoration: underline; }
 
-.breadcrumb__sep {
-  color: var(--color-border);
-}
+.breadcrumb__sep { color: var(--color-border); }
 
 .breadcrumb__current {
   overflow: hidden;
@@ -138,53 +122,5 @@ const { article, loading, error } = useArticle(slug.value)
   color: var(--color-heading);
 }
 
-.not-found-state__message {
-  color: var(--color-muted);
-}
-
-/* Loading skeleton */
-.loading-state {
-  padding: var(--space-8) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
-
-.skeleton {
-  border-radius: var(--radius-md);
-  background: linear-gradient(
-    90deg,
-    var(--color-skeleton-lo) 0%,
-    var(--color-skeleton-hi) 50%,
-    var(--color-skeleton-lo) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-.skeleton--title  { height: 80px; }
-.skeleton--body   { height: 120px; }
-
-@keyframes shimmer {
-  0%   { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
-/* Error state */
-.error-state {
-  padding: var(--space-8) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  color: #f87171;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
+.not-found-state__message { color: var(--color-muted); }
 </style>

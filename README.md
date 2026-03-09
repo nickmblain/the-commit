@@ -3,7 +3,6 @@
 A monthly technical knowledge-sharing site. One article per month on Vue.js patterns, AI-assisted development workflows, and frontend architecture.
 
 **Live:** [deploy URL here]
-**CMS:** [manage.sanity.io](https://manage.sanity.io)
 
 ---
 
@@ -13,9 +12,10 @@ A monthly technical knowledge-sharing site. One article per month on Vue.js patt
 |---|---|
 | Framework | Vue 3 + Vite + TypeScript |
 | Routing | Vue Router (history mode) |
-| Content | Sanity.io (headless CMS) |
-| Rendering | `@portabletext/vue` |
+| Content | Local TypeScript files in `src/data/articles/` |
 | Hosting | Netlify |
+
+No external CMS, no API keys, no environment variables required.
 
 ---
 
@@ -24,165 +24,93 @@ A monthly technical knowledge-sharing site. One article per month on Vue.js patt
 ### Prerequisites
 
 - Node.js 20+
-- A Sanity.io project (see [Sanity Setup](#sanity-setup) below)
 
-### 1. Clone and install
+### Install and run
 
 ```bash
 git clone https://github.com/nickmblain/the-commit.git
 cd the-commit
 npm install
-```
-
-### 2. Environment variables
-
-Copy `.env.example` to `.env.local` and fill in your Sanity credentials:
-
-```bash
-cp .env.example .env.local
-```
-
-```env
-VITE_SANITY_PROJECT_ID=your_project_id_here
-VITE_SANITY_DATASET=production
-```
-
-> `.env.local` is gitignored. Never commit it.
-
-### 3. Start dev server
-
-```bash
 npm run dev
 ```
 
----
-
-## Sanity Setup
-
-Sanity is used as the headless CMS. Articles are authored in Sanity Studio and fetched via the Sanity CDN at build/runtime.
-
-### Create a Sanity project
-
-1. Go to [sanity.io](https://www.sanity.io) and sign in
-2. Create a new project — choose the **blank** template
-3. Note your **Project ID** and set **Dataset** to `production`
-
-### Install Sanity CLI and create a Studio
-
-```bash
-npm create sanity@latest -- --project YOUR_PROJECT_ID --dataset production --template clean
-```
-
-This creates a `studio/` directory. Run `npm run dev` inside it to open Studio locally.
-
-### Article schema
-
-Add this schema to your Studio's `schemaTypes/` directory as `article.ts`:
-
-```typescript
-import { defineType, defineField } from 'sanity'
-
-export const articleType = defineType({
-  name: 'article',
-  title: 'Article',
-  type: 'document',
-  fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-      title: 'Title',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
-      options: { source: 'title' },
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'publishedAt',
-      type: 'datetime',
-      title: 'Published at',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'excerpt',
-      type: 'text',
-      title: 'Excerpt',
-      rows: 3,
-      validation: (Rule) => Rule.required().max(300),
-    }),
-    defineField({
-      name: 'tags',
-      type: 'array',
-      title: 'Tags',
-      of: [{ type: 'string' }],
-      options: { layout: 'tags' },
-    }),
-    defineField({
-      name: 'readingTimeMinutes',
-      type: 'number',
-      title: 'Reading time (minutes)',
-    }),
-    defineField({
-      name: 'body',
-      type: 'array',
-      title: 'Body',
-      of: [
-        { type: 'block' },
-        {
-          type: 'code',
-          options: { language: 'typescript', languageAlternatives: [
-            { title: 'TypeScript', value: 'typescript' },
-            { title: 'JavaScript', value: 'javascript' },
-            { title: 'Vue', value: 'vue' },
-            { title: 'Bash', value: 'bash' },
-            { title: 'JSON', value: 'json' },
-          ]},
-        },
-      ],
-    }),
-  ],
-  preview: {
-    select: { title: 'title', subtitle: 'publishedAt' },
-  },
-})
-```
-
-Then register it in `schemaTypes/index.ts`:
-
-```typescript
-import { articleType } from './article'
-export const schemaTypes = [articleType]
-```
-
-> The `code` block type requires the `@sanity/code-input` plugin:
-> ```bash
-> npm install @sanity/code-input
-> ```
-> And register it in `sanity.config.ts`:
-> ```typescript
-> import { codeInput } from '@sanity/code-input'
-> plugins: [structureTool(), codeInput()]
-> ```
-
-### CORS for localhost
-
-In [manage.sanity.io](https://manage.sanity.io) → your project → **API** → **CORS Origins**, add:
-
-- `http://localhost:5173` (dev)
-- Your Netlify domain (production)
+Dev server runs at `http://localhost:5173`.
 
 ---
 
 ## Publishing an Article
 
-1. Open Sanity Studio (`npm run dev` in the `studio/` directory, or use the hosted Studio URL)
-2. Create a new **Article** document
-3. Fill in title, slug (auto-generated), published date, excerpt, tags, and body
-4. Click **Publish**
-5. The site fetches live from Sanity's CDN — no redeploy needed
+Articles live in [`src/data/articles/`](src/data/articles/). Each article is a single TypeScript file.
+
+### 1. Create the article file
+
+Name it `YYYY-MM-slug.ts` — e.g. `2025-04-vue-composables.ts`:
+
+```typescript
+import type { Article } from '@/types/article'
+
+const article: Article = {
+  slug: '2025-04-vue-composables',
+  title: 'Your Article Title',
+  date: '2025-04-01',          // ISO 8601
+  excerpt: 'One or two sentences shown on the home page card.',
+  tags: ['vue', 'composables'],
+  readingTimeMinutes: 5,
+  body: [
+    {
+      type: 'paragraph',
+      content: 'Your opening paragraph.',
+    },
+    {
+      type: 'heading',
+      level: 2,
+      content: 'A Section Heading',
+    },
+    {
+      type: 'code',
+      language: 'typescript',
+      content: `const example = ref(0)`,
+    },
+    {
+      type: 'list',
+      items: ['First point', 'Second point'],
+    },
+  ],
+}
+
+export default article
+```
+
+**Supported block types:**
+
+| `type` | Required fields | Notes |
+|---|---|---|
+| `paragraph` | `content` | Plain text |
+| `heading` | `content`, `level` (2, 3, or 4) | |
+| `code` | `content`, `language` (optional) | Monospace block |
+| `quote` | `content` | Styled blockquote |
+| `list` | `items: string[]` | Bulleted list |
+| `divider` | — | Horizontal rule |
+
+### 2. Register the article
+
+Open [`src/data/articles/index.ts`](src/data/articles/index.ts) and add your import:
+
+```typescript
+import article202504 from './2025-04-vue-composables'
+
+const articles: Article[] = [article202503, article202504]
+```
+
+The list is sorted by date automatically — order doesn't matter.
+
+### 3. Deploy
+
+```bash
+npm run build
+```
+
+Then drag the `dist/` folder into Netlify's deploy UI, or push to `main` if you have auto-deploys connected.
 
 ---
 
@@ -192,20 +120,19 @@ In [manage.sanity.io](https://manage.sanity.io) → your project → **API** →
 
 1. Push this repo to GitHub
 2. Go to [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import from Git**
-3. Select your repo
-4. Build settings are already in `netlify.toml`:
+3. Select your repo — build settings are already in `netlify.toml`:
    - Build command: `npm run build`
    - Publish directory: `dist`
-5. Under **Site settings → Environment variables**, add:
-   - `VITE_SANITY_PROJECT_ID`
-   - `VITE_SANITY_DATASET`
-6. Deploy
+4. Deploy
 
-### Subsequent deploys
+No environment variables needed.
 
-Push to `main` → Netlify auto-builds. Or drag-and-drop `dist/` in the Netlify UI after running `npm run build` locally.
+### Manual deploy (without Git)
 
-> **Note:** Articles publish instantly via Sanity CDN without a redeploy — no action needed after publishing in Studio.
+```bash
+npm run build
+# drag dist/ into Netlify's deploy drop zone
+```
 
 ---
 
@@ -217,28 +144,29 @@ the-commit/
 │   └── favicon.svg
 ├── src/
 │   ├── assets/
-│   │   └── main.css          # Global CSS + design tokens
+│   │   └── main.css            # Global CSS + light-dark() design tokens
 │   ├── components/
-│   │   ├── article/          # ArticleHeader, ArticleBody (PortableText)
-│   │   ├── home/             # HeroSection, ArticleCard
-│   │   ├── layout/           # AppHeader, AppFooter
-│   │   └── ui/               # BlobGradient
+│   │   ├── article/            # ArticleHeader, ArticleBody
+│   │   ├── home/               # HeroSection, ArticleCard
+│   │   ├── layout/             # AppHeader (with theme toggle), AppFooter
+│   │   └── ui/                 # BlobGradient
 │   ├── composables/
-│   │   ├── useArticle.ts     # Fetch single article by slug
-│   │   └── useArticles.ts    # Fetch all articles
+│   │   ├── useArticle.ts       # Look up a single article by slug
+│   │   ├── useArticles.ts      # Return sorted article list
+│   │   └── useTheme.ts         # Light/dark mode toggle + localStorage
+│   ├── data/
+│   │   └── articles/
+│   │       ├── index.ts        # ← register new articles here
+│   │       └── 2025-03-*.ts    # one file per article
 │   ├── router/
 │   │   └── index.ts
-│   ├── sanity/
-│   │   ├── client.ts         # Sanity client (reads from env vars)
-│   │   └── queries.ts        # GROQ queries
 │   ├── types/
-│   │   └── article.ts        # Article interface
+│   │   └── article.ts          # Article + ArticleBlock interfaces
 │   └── views/
 │       ├── HomeView.vue
 │       ├── ArticleView.vue
 │       ├── AboutView.vue
 │       └── NotFoundView.vue
-├── .env.example
 ├── netlify.toml
 └── package.json
 ```
@@ -248,7 +176,13 @@ the-commit/
 ## Scripts
 
 ```bash
-npm run dev       # Start dev server at localhost:5173
+npm run dev       # Dev server at localhost:5173
 npm run build     # Type-check + build to dist/
 npm run preview   # Preview the production build locally
 ```
+
+---
+
+## Light / Dark Mode
+
+The site respects the system preference automatically via `light-dark()` CSS. Users can also toggle manually with the sun/moon button in the header — preference is persisted to `localStorage`.
