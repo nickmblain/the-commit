@@ -42,12 +42,10 @@ const article: Article = {
         {
             type: 'code',
             language: 'typescript',
-            content: `// Before: logic scattered across options object
-export default {
-  data() { return { count: 0 } },
-  computed: { doubled() { return this.count * 2 } },
-  methods: { increment() { this.count++ } }
-}
+            content: `// Before: logic defined separately, harder to reuse
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+const increment = () => count.value++
 
 // After: logic co-located in a composable
 export function useCounter() {
