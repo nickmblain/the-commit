@@ -135,7 +135,7 @@ const { article, loading, error } = useArticle(slug.value)
 
 .not-found-state__heading {
   font-size: 2rem;
-  color: #fff;
+  color: var(--color-heading);
 }
 
 .not-found-state__message {
@@ -154,9 +154,9 @@ const { article, loading, error } = useArticle(slug.value)
   border-radius: var(--radius-md);
   background: linear-gradient(
     90deg,
-    rgba(255 255 255 / 0.03) 0%,
-    rgba(255 255 255 / 0.07) 50%,
-    rgba(255 255 255 / 0.03) 100%
+    var(--color-skeleton-lo) 0%,
+    var(--color-skeleton-hi) 50%,
+    var(--color-skeleton-lo) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;

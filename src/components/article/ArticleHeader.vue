@@ -62,7 +62,7 @@ function formatDate(iso: string): string {
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.15;
-  color: #fff;
+  color: var(--color-heading);
 }
 
 .article-header__excerpt {

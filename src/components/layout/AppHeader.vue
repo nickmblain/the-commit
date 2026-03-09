@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
+import { useTheme } from '@/composables/useTheme'
 
 const route = useRoute()
 const menuOpen = ref(false)
+const { isDark, toggle } = useTheme()
 
 const navLinks = [
   { name: 'home', label: 'Home', to: '/' },
@@ -30,6 +32,27 @@ function closeMenu() {
       </RouterLink>
 
       <nav class="nav" aria-label="Main navigation">
+        <button
+          class="theme-toggle"
+          type="button"
+          :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
+          @click="toggle"
+        >
+          <!-- Sun (shown in dark mode — click to go light) -->
+          <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <!-- Moon (shown in light mode — click to go dark) -->
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+
         <button
           class="nav__toggle"
           type="button"
@@ -66,9 +89,10 @@ function closeMenu() {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid var(--color-border);
-  background: rgba(9 9 15 / 0.85);
+  background: var(--color-header-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  transition: background 0.2s, border-color 0.2s;
 }
 
 .header__inner {
@@ -86,33 +110,22 @@ function closeMenu() {
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-heading);
   text-decoration: none;
   letter-spacing: -0.01em;
 }
 
-.logo__bracket {
-  color: var(--color-accent-2);
-}
+.logo__bracket { color: var(--color-accent-2); }
+.logo__text    { color: var(--color-heading); padding-inline: 2px; }
+.logo__cursor  { color: var(--color-accent-1); animation: blink 1.1s step-end infinite; }
 
-.logo__text {
-  color: #fff;
-  padding-inline: 2px;
-}
-
-.logo__cursor {
-  color: var(--color-accent-1);
-  animation: blink 1.1s step-end infinite;
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
-}
+@keyframes blink { 50% { opacity: 0; } }
 
 /* Nav */
 .nav {
   display: flex;
   align-items: center;
+  gap: var(--space-2);
 }
 
 .nav__list {
@@ -134,16 +147,36 @@ function closeMenu() {
 
 .nav__link:hover,
 .nav__link.is-active {
-  color: #fff;
-  background: rgba(255 255 255 / 0.06);
+  color: var(--color-heading);
+  background: var(--color-nav-hover);
   text-decoration: none;
 }
 
-.nav__link.is-active {
-  color: var(--color-accent-2);
+.nav__link.is-active { color: var(--color-accent-2); }
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: none;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  color: var(--color-muted);
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+  flex-shrink: 0;
 }
 
-/* Mobile toggle */
+.theme-toggle:hover {
+  color: var(--color-heading);
+  background: var(--color-nav-hover);
+  border-color: var(--color-accent-2);
+}
+
+/* Mobile hamburger */
 .nav__toggle {
   display: none;
   background: none;
@@ -182,9 +215,7 @@ function closeMenu() {
 }
 
 @media (max-width: 600px) {
-  .nav__toggle {
-    display: flex;
-  }
+  .nav__toggle { display: flex; }
 
   .nav__list {
     display: none;
@@ -200,9 +231,7 @@ function closeMenu() {
     gap: var(--space-2);
   }
 
-  .nav__list.is-open {
-    display: flex;
-  }
+  .nav__list.is-open { display: flex; }
 
   .nav__link {
     padding: var(--space-3) var(--space-4);

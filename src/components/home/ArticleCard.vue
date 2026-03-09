@@ -105,7 +105,7 @@ function formatDate(iso: string): string {
 }
 
 .card__title-link {
-  color: #fff;
+  color: var(--color-heading);
   text-decoration: none;
   transition: color 0.15s;
 }
@@ -148,6 +148,6 @@ function formatDate(iso: string): string {
 
 .card__cta:hover {
   text-decoration: none;
-  color: #fff;
+  color: var(--color-heading);
 }
 </style>

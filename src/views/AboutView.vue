@@ -102,14 +102,14 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   justify-content: center;
   font-size: 1.5rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--color-heading);
   flex-shrink: 0;
 }
 
 .about-header__name {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--color-heading);
 }
 
 .about-header__role {
@@ -167,6 +167,6 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
 }
 
 .about-list strong {
-  color: #fff;
+  color: var(--color-heading);
 }
 </style>

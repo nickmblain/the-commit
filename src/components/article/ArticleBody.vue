@@ -129,13 +129,13 @@ const portableComponents = {
 .article-body :deep(.body-h2) {
   font-size: 1.5rem;
   margin-top: var(--space-4);
-  color: #fff;
+  color: var(--color-heading);
 }
 
 .article-body :deep(.body-h3) {
   font-size: 1.25rem;
   margin-top: var(--space-3);
-  color: #fff;
+  color: var(--color-heading);
 }
 
 .article-body :deep(.body-h4) {

@@ -14,7 +14,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
       </p>
 
       <h1 id="hero-heading" class="hero__title">
-        The Commit
+        <span class="hero__title-main">The Commit</span>
         <span class="hero__title-accent">with Nick</span>
       </h1>
 
@@ -46,7 +46,6 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  max-width: 680px;
 }
 
 .hero__eyebrow {
@@ -66,6 +65,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   background: var(--color-accent-2);
   border-radius: 50%;
   box-shadow: 0 0 8px var(--color-accent-2);
+  flex-shrink: 0;
   animation: pulse 2.5s ease-in-out infinite;
 }
 
@@ -82,11 +82,18 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
-  color: #fff;
 }
 
+.hero__title-main {
+  color: var(--color-heading);
+  display: block;
+}
+
+/* Gradient spans the full content width, not just the text width */
 .hero__title-accent {
-  background: linear-gradient(90deg, var(--color-accent-1), var(--color-accent-2));
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, var(--color-accent-1) 0%, var(--color-accent-2) 60%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -111,7 +118,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
   font-weight: 600;
   padding: var(--space-1) var(--space-3);
   border-radius: 999px;
-  background: rgba(255 255 255 / 0.05);
+  background: var(--color-nav-hover);
   border: 1px solid var(--color-border);
   color: var(--color-muted);
   letter-spacing: 0.02em;

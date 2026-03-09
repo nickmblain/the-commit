@@ -105,9 +105,9 @@ const { articles, loading, error } = useArticles()
   border-radius: var(--radius-lg);
   background: linear-gradient(
     90deg,
-    rgba(255 255 255 / 0.03) 0%,
-    rgba(255 255 255 / 0.07) 50%,
-    rgba(255 255 255 / 0.03) 100%
+    var(--color-skeleton-lo) 0%,
+    var(--color-skeleton-hi) 50%,
+    var(--color-skeleton-lo) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
