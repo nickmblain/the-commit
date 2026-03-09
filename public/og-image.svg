@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="blobViolet" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.45"/>
+      <stop offset="60%" stop-color="#7c3aed" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#7c3aed" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blobCyan" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="nickGrad" x1="340" y1="0" x2="860" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="dividerGrad" x1="440" y1="0" x2="760" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#09090f"/>
+
+  <!-- Violet blob — top right -->
+  <ellipse cx="1020" cy="160" rx="500" ry="420" fill="url(#blobViolet)"/>
+
+  <!-- Cyan blob — bottom left -->
+  <ellipse cx="200" cy="490" rx="380" ry="300" fill="url(#blobCyan)"/>
+
+  <!-- Eyebrow dot -->
+  <circle cx="480" cy="178" r="6" fill="#06b6d4"/>
+
+  <!-- Eyebrow label -->
+  <text x="498" y="185" font-family="'Courier New', Courier, monospace" font-size="22" font-weight="600" fill="#06b6d4" letter-spacing="3">MONTHLY KNOWLEDGE-SHARING BY NICK</text>
+
+  <!-- "The Commit" -->
+  <text x="600" y="310" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="800" letter-spacing="-4" fill="#f6f6fa">The Commit</text>
+
+  <!-- "with Nick" — gradient -->
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="112" font-weight="800" letter-spacing="-4" fill="url(#nickGrad)">with Nick</text>
+
+  <!-- Divider -->
+  <rect x="440" y="462" width="320" height="3" rx="2" fill="url(#dividerGrad)"/>
+
+  <!-- Tagline -->
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="#a1a1b5" letter-spacing="0.3">Vue.js patterns, AI workflows, and building things that last.</text>
+
+  <!-- Domain -->
+  <text x="600" y="575" text-anchor="middle" font-family="'Courier New', Courier, monospace" font-size="20" fill="#4a4a6a" letter-spacing="1">the-commit.netlify.app</text>
+</svg>
