@@ -1,5 +1,5 @@
 /* ============================================================
-   Color scheme — light-dark() switches automatically with the
+   Color scheme: light-dark() switches automatically with the
    system preference. data-theme="light/dark" on <html> overrides.
    ============================================================ */
 :root {
@@ -33,7 +33,7 @@
   --color-skeleton-lo: light-dark(rgba(0 0 0 / 0.04), rgba(255 255 255 / 0.03));
   --color-skeleton-hi: light-dark(rgba(0 0 0 / 0.09), rgba(255 255 255 / 0.07));
 
-  /* Accents — same in both modes */
+  /* Accents: same in both modes */
   --color-accent-1: #7c3aed; /* violet */
   --color-accent-2: #06b6d4; /* cyan   */
   --color-accent-3: #f59e0b; /* amber  */

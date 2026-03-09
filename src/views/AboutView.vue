@@ -21,7 +21,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
         <p>
           This site exists to satisfy a commitment: contribute at least one written
           knowledge-sharing resource per month. README updates, technical docs, code
-          comments, wiki articles — something that outlasts the context of a single sprint.
+          comments, wiki articles: something that outlasts the context of a single sprint.
         </p>
         <p>
           The focus areas are Vue.js patterns, AI-assisted development workflows,
@@ -39,22 +39,22 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
         <ul class="about-list">
           <li>
             <span class="about-list__icon" aria-hidden="true">▸</span>
-            <strong>Vue 3 Patterns</strong> — Composition API, composables, performance,
+            <strong>Vue 3 Patterns:</strong> Composition API, composables, performance,
             and architecture decisions in real SPA contexts.
           </li>
           <li>
             <span class="about-list__icon" aria-hidden="true">▸</span>
-            <strong>AI Workflows</strong> — What actually helps vs. what creates noise
+            <strong>AI Workflows:</strong> What actually helps vs. what creates noise
             when using AI tooling in a professional dev environment.
           </li>
           <li>
             <span class="about-list__icon" aria-hidden="true">▸</span>
-            <strong>Architecture Notes</strong> — Decisions, trade-offs, and patterns
+            <strong>Architecture Notes:</strong> Decisions, trade-offs, and patterns
             in maintainable frontend systems.
           </li>
           <li>
             <span class="about-list__icon" aria-hidden="true">▸</span>
-            <strong>Quarterly Reflections</strong> — Self-assessment notes and
+            <strong>Quarterly Reflections:</strong> Self-assessment notes and
             documented improvement actions.
           </li>
         </ul>
@@ -64,7 +64,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
         <h2 id="about-cadence" class="about-section__title">Cadence</h2>
         <p>
           One article per month, published at the start of each month. No newsletter,
-          no algorithm — just a commit log you can read.
+          no algorithm. Just a commit log you can read.
         </p>
       </section>
     </div>

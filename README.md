@@ -44,7 +44,7 @@ Articles live in [`src/data/articles/`](src/data/articles/). Each article is a s
 
 ### 1. Create the article file
 
-Name it `YYYY-MM-slug.ts` — e.g. `2025-04-vue-composables.ts`:
+Name it `YYYY-MM-slug.ts`, e.g. `2025-04-vue-composables.ts`:
 
 ```typescript
 import type { Article } from '@/types/article'
@@ -90,7 +90,7 @@ export default article
 | `code` | `content`, `language` (optional) | Monospace block |
 | `quote` | `content` | Styled blockquote |
 | `list` | `items: string[]` | Bulleted list |
-| `divider` | — | Horizontal rule |
+| `divider` | (none) | Horizontal rule |
 
 ### 2. Register the article
 
@@ -102,7 +102,7 @@ import article202504 from './2025-04-vue-composables'
 const articles: Article[] = [article202503, article202504]
 ```
 
-The list is sorted by date automatically — order doesn't matter.
+The list is sorted by date automatically, order doesn't matter.
 
 ### 3. Deploy
 
@@ -120,7 +120,7 @@ Then drag the `dist/` folder into Netlify's deploy UI, or push to `main` if you 
 
 1. Push this repo to GitHub
 2. Go to [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import from Git**
-3. Select your repo — build settings are already in `netlify.toml`:
+3. Select your repo; build settings are already in `netlify.toml`:
    - Build command: `npm run build`
    - Publish directory: `dist`
 4. Deploy
@@ -185,4 +185,4 @@ npm run preview   # Preview the production build locally
 
 ## Light / Dark Mode
 
-The site respects the system preference automatically via `light-dark()` CSS. Users can also toggle manually with the sun/moon button in the header — preference is persisted to `localStorage`.
+The site respects the system preference automatically via `light-dark()` CSS. Users can also toggle manually with the sun/moon button in the header, preference is persisted to `localStorage`.

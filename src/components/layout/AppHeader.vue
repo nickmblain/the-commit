@@ -24,7 +24,7 @@ function closeMenu() {
 <template>
   <header class="header">
     <div class="container header__inner">
-      <RouterLink to="/" class="logo" aria-label="The Commit with Nick — home" @click="closeMenu">
+      <RouterLink to="/" class="logo" aria-label="The Commit with Nick" @click="closeMenu">
         <span class="logo__bracket" aria-hidden="true">[</span>
         <span class="logo__text">the-commit</span>
         <span class="logo__cursor" aria-hidden="true">▌</span>
@@ -39,7 +39,7 @@ function closeMenu() {
           :title="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
           @click="toggle"
         >
-          <!-- Sun (shown in dark mode — click to go light) -->
+          <!-- Sun icon: click to switch to light mode -->
           <svg v-if="isDark" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="4"/>
             <line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/>
@@ -47,7 +47,7 @@ function closeMenu() {
             <line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/>
             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
           </svg>
-          <!-- Moon (shown in light mode — click to go dark) -->
+          <!-- Moon icon: click to switch to dark mode -->
           <svg v-else xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>

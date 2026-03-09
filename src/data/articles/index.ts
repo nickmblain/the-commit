@@ -1,7 +1,7 @@
 import type { Article } from '@/types/article'
 import article202503 from './2025-03-the-first-commit'
 
-// Add new articles here — newest first by convention, sorted by date below
+// Add new articles here, newest first by convention, sorted by date below
 const articles: Article[] = [article202503]
 
 export const getSortedArticles = (): Article[] =>

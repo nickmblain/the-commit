@@ -28,7 +28,7 @@ const { articles } = useArticles()
         </div>
 
         <div v-else class="articles-empty">
-          <p>No articles yet — check back next commit.</p>
+          <p>No articles yet. Check back next month.</p>
         </div>
       </div>
     </section>
