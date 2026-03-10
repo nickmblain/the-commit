@@ -12,7 +12,7 @@ const slug = computed(() => {
   return Array.isArray(s) ? (s[0] ?? '') : (s ?? '')
 })
 
-const { article } = useArticle(slug.value)
+const { article, nextArticle } = useArticle(slug)
 </script>
 
 <template>
@@ -32,6 +32,11 @@ const { article } = useArticle(slug.value)
 
         <footer class="article-page__footer">
           <RouterLink to="/" class="back-link">← Back to all articles</RouterLink>
+          <RouterLink
+            v-if="nextArticle"
+            :to="`/articles/${nextArticle.slug}`"
+            class="next-link"
+          >{{ nextArticle.title }} →</RouterLink>
         </footer>
       </div>
     </div>
@@ -87,6 +92,10 @@ const { article } = useArticle(slug.value)
   margin-top: var(--space-8);
   padding-top: var(--space-7);
   border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-6);
 }
 
 .back-link {
@@ -95,9 +104,24 @@ const { article } = useArticle(slug.value)
   color: var(--color-muted);
   text-decoration: none;
   transition: color 0.15s;
+  flex-shrink: 0;
 }
 
 .back-link:hover {
+  color: var(--color-accent-2);
+  text-decoration: none;
+}
+
+.next-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  text-align: right;
+}
+
+.next-link:hover {
   color: var(--color-accent-2);
   text-decoration: none;
 }

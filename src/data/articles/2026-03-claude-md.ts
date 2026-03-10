@@ -22,7 +22,7 @@ const article: Article = {
         {
             type: 'paragraph',
             content:
-                "CLAUDE.md is a plain markdown file that lives at the root of your repository. Claude Code reads it automatically at the start of every session, before you type a single prompt. It is your standing instruction set: the rules, conventions, and context that apply to every piece of work in that codebase. You check it into git, so it travels with the repo.",
+                "CLAUDE.md is a plain markdown file that lives at the root of your repository. Claude Code reads it automatically at the start of every session, before you type a single prompt. It is your standing instruction set: the rules, conventions, and context that apply to every piece of work in that codebase. You check it into git, so it travels with the repo. Or, add it to your .gitignore if you prefer to keep it private. Either way, it is a single source of truth for the AI about how to write code in your project.",
         },
         {
             type: 'paragraph',
