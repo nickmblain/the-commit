@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'Most technical documentation fails not because it is inaccurate but because it is organized for the writer, not the reader. A few structural decisions change that.',
     tags: ['knowledge-sharing', 'dx', 'architecture'],
-    readingTimeMinutes: 5,
+    readingTimeMinutes: 4,
     body: [
         {
             type: 'paragraph',

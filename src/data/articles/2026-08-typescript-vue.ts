@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'TypeScript in Vue 3 is genuinely good, but there are specific patterns that unlock most of the value. Here are the ones worth learning.',
     tags: ['vue', 'typescript', 'patterns'],
-    readingTimeMinutes: 6,
+    readingTimeMinutes: 7,
     body: [
         {
             type: 'paragraph',

@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'Generic AI assistants do generic work. The upgrade is building specialized agents scoped to specific jobs: a test writer, a doc generator, a security reviewer. Here is how to build them and what makes them actually useful.',
     tags: ['ai', 'dx', 'knowledge-sharing'],
-    readingTimeMinutes: 6,
+    readingTimeMinutes: 8,
     body: [
         {
             type: 'paragraph',

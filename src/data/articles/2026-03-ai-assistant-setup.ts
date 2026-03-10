@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'Your team uses Claude, Cursor, Copilot, and Windsurf. Each tool reads from a different file. Here is how to write your standards once and get coverage everywhere without maintaining four separate documents.',
     tags: ['ai', 'dx', 'knowledge-sharing'],
-    readingTimeMinutes: 6,
+    readingTimeMinutes: 5,
     body: [
         {
             type: 'paragraph',

@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'Most Vue performance problems come from a short list of common mistakes. This is the checklist I work through when a SPA feels slow, and the order in which the fixes actually matter.',
     tags: ['vue', 'performance', 'patterns'],
-    readingTimeMinutes: 6,
+    readingTimeMinutes: 5,
     body: [
         {
             type: 'paragraph',

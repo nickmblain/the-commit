@@ -7,7 +7,7 @@ const article: Article = {
     excerpt:
         'Ten articles in, here is what I expected this project to do, what it actually did, and what I am carrying into next year.',
     tags: ['meta', 'knowledge-sharing', 'ai'],
-    readingTimeMinutes: 5,
+    readingTimeMinutes: 4,
     body: [
         {
             type: 'paragraph',
