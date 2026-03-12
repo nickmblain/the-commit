@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-03-claude-md',
     title: 'CLAUDE.md: The File That Made AI Actually Useful on My Projects',
     date: '2026-03-09',
+    author: 'Nick Blain',
     excerpt:
         'One markdown file at the root of your repo can be the difference between an AI assistant that helps and one that constantly needs correcting. Here is what changed when I started using it seriously.',
     tags: ['ai', 'vue', 'dx', 'knowledge-sharing'],

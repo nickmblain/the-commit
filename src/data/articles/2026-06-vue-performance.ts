@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-06-vue-performance',
     title: 'Vue SPA Performance: The Practical Checklist',
     date: '2026-06-03',
+    author: 'Nick Blain',
     excerpt:
         'Most Vue performance problems come from a short list of common mistakes. This is the checklist I work through when a SPA feels slow, and the order in which the fixes actually matter.',
     tags: ['vue', 'performance', 'patterns'],

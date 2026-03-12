@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-07-accessible-components',
     title: 'Accessible Vue Components: The Patterns That Actually Matter',
     date: '2026-07-22',
+    author: 'Nick Blain',
     excerpt:
         'Accessibility is not a post-launch audit item. It is a set of concrete patterns you apply while building. Here are the ones that make the biggest difference in Vue 3 components.',
     tags: ['vue', 'accessibility', 'patterns'],

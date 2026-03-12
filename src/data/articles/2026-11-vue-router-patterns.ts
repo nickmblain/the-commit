@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-11-vue-router-patterns',
     title: 'Vue Router Patterns That Hold Up at Scale',
     date: '2026-11-01',
+    author: 'Nick Blain',
     excerpt:
         'The basics of Vue Router are easy. The patterns that keep routing maintainable in a large SPA take more deliberate choices. Here are the ones that have made the biggest difference.',
     tags: ['vue', 'vue-router', 'patterns'],

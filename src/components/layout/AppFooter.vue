@@ -6,7 +6,7 @@ const year = new Date().getFullYear()
   <footer class="footer">
     <div class="container footer__inner">
       <p class="footer__copy">
-        &copy; {{ year }} Nick. <span class="footer__tagline">committed monthly</span>
+        &copy; {{ year }} Nick. <span class="footer__tagline">committed when it's ready</span>
       </p>
       <p class="footer__note">
         Built with Vue 3 + Vite. Deployed on Netlify.

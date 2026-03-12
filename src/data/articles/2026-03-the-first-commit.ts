@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-03-the-first-commit',
     title: "The First Commit: Why I'm Writing Every Month",
     date: '2026-03-06',
+    author: 'Nick Blain',
     excerpt:
         'Starting a habit of monthly technical writing, and why documenting what you learn compounds faster than you expect.',
     tags: ['meta', 'vue', 'knowledge-sharing'],

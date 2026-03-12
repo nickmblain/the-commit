@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-05-ai-code-review',
     title: 'Using AI for Code Review Without Getting Burned',
     date: '2026-05-14',
+    author: 'Nick Blain',
     excerpt:
         'AI is a capable first-pass reviewer, but it has consistent blind spots that will bite you if you are not watching for them. Here is how I use it without trusting it blindly.',
     tags: ['ai', 'dx', 'code-review'],

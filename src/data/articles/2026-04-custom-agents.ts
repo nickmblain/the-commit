@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-04-custom-agents',
     title: 'Custom Agents and Slash Commands: Turning Repetitive Prompts Into Reusable Tools',
     date: '2026-04-08',
+    author: 'Nick Blain',
     excerpt:
         'Generic AI assistants do generic work. The upgrade is building specialized agents scoped to specific jobs: a test writer, a doc generator, a security reviewer. Here is how to build them and what makes them actually useful.',
     tags: ['ai', 'dx', 'knowledge-sharing'],

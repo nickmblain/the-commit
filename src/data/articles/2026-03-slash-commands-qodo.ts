@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-03-slash-commands-qodo',
     title: 'Slash Commands That Fight Back: Automating the Qodo Review Loop',
     date: '2026-03-12',
+    author: 'Nick Blain',
     excerpt:
         'Qodo posts AI review comments on every PR. Instead of manually triaging each one, we built a set of slash commands that do the triage for us, catch common issues before they get flagged, and keep the review cycle moving.',
     tags: ['ai', 'dx', 'code-review', 'claude-code'],

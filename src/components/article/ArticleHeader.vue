@@ -16,6 +16,8 @@ function formatDate(iso: string): string {
 <template>
   <header class="article-header">
     <div class="article-header__meta">
+      <span class="article-header__author">{{ props.article.author }}</span>
+      <span class="article-header__sep" aria-hidden="true">·</span>
       <time :datetime="props.article.date" class="article-header__date">
         {{ formatDate(props.article.date) }}
       </time>

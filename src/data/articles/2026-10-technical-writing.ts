@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-10-technical-writing',
     title: 'Writing Technical Docs That People Actually Read',
     date: '2026-10-06',
+    author: 'Nick Blain',
     excerpt:
         'Most technical documentation fails not because it is inaccurate but because it is organized for the writer, not the reader. A few structural decisions change that.',
     tags: ['knowledge-sharing', 'dx', 'architecture'],

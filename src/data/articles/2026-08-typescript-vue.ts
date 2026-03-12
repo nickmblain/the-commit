@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-08-typescript-vue',
     title: 'TypeScript Patterns That Make Vue 3 Better',
     date: '2026-08-11',
+    author: 'Nick Blain',
     excerpt:
         'TypeScript in Vue 3 is genuinely good, but there are specific patterns that unlock most of the value. Here are the ones worth learning.',
     tags: ['vue', 'typescript', 'patterns'],

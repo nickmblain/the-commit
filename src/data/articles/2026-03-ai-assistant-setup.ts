@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-03-ai-assistant-setup',
     title: 'One Repo, Every AI Assistant: How to Set Up Context That Works for the Whole Team',
     date: '2026-03-10',
+    author: 'Nick Blain',
     excerpt:
         'Your team uses Claude, Cursor, Copilot, and Windsurf. Each tool reads from a different file. Here is how to write your standards once and get coverage everywhere without maintaining four separate documents.',
     tags: ['ai', 'dx', 'knowledge-sharing'],

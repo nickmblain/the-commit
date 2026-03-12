@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-12-year-in-review',
     title: 'A Year of Monthly Articles: What Actually Changed',
     date: '2026-12-09',
+    author: 'Nick Blain',
     excerpt:
         'Ten articles in, here is what I expected this project to do, what it actually did, and what I am carrying into next year.',
     tags: ['meta', 'knowledge-sharing', 'ai'],

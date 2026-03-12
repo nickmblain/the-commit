@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-11-vue-dotnet',
     title: 'Vue 3 with a .NET Backend: The Patterns That Actually Work',
     date: '2026-11-19',
+    author: 'Nick Blain',
     excerpt:
         'Running a Vue 3 SPA against a .NET Web API is a common stack and an underwritten topic. Here are the patterns for development setup, API integration, auth, and deployment that have held up in production.',
     tags: ['vue', 'dotnet', 'architecture', 'patterns'],

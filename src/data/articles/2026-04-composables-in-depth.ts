@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-04-composables-in-depth',
     title: 'Vue 3 Composables: The Reuse Pattern That Actually Works',
     date: '2026-04-22',
+    author: 'Nick Blain',
     excerpt:
         'Composables are more than just functions with refs. Knowing how to compose them, handle async state cleanly, and clean up after themselves is what separates a solid composable from one that causes subtle bugs.',
     tags: ['vue', 'composables', 'patterns'],

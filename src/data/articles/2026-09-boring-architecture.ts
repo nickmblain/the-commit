@@ -4,6 +4,7 @@ const article: Article = {
     slug: '2026-09-boring-architecture',
     title: 'Boring Architecture Is Good Architecture',
     date: '2026-09-17',
+    author: 'Nick Blain',
     excerpt:
         'The best frontend architecture decisions I have made were the ones that prioritized longevity over novelty. Here is what boring actually means, and why it is the right default.',
     tags: ['architecture', 'dx', 'knowledge-sharing'],

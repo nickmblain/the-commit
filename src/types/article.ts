@@ -13,6 +13,7 @@ export interface Article {
   slug: string
   title: string
   date: string // ISO 8601
+  author: string
   excerpt: string
   tags: string[]
   readingTimeMinutes: number
