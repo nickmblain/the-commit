@@ -41,17 +41,17 @@ const article: Article = {
         {
             type: 'heading',
             level: 2,
-            content: 'Catching Issues Before Qodo Does',
+            content: 'Keeping data-qa-id Coverage Complete',
         },
         {
             type: 'paragraph',
             content:
-                "The most valuable place to stop a Qodo comment is before the PR exists. The /qa-audit command handles this.",
+                "Our project requires data-qa-id attributes on interactive elements so automated tests can reliably target them. It is easy to forget one when you are deep in a feature, and manually auditing a component is tedious work.",
         },
         {
             type: 'paragraph',
             content:
-                "Our project requires data-qa-id attributes on interactive elements so automated tests can reliably target them. Qodo notices when they are missing and flags it every time. Running /qa-audit on a component before committing takes seconds and produces a list of every element that needs an attribute added. It understands which elements need them (buttons, inputs, links, modals, key containers) and which are just decorative layout that should be left alone.",
+                "The /qa-audit command scans a Vue component and produces a list of every element that needs an attribute added. It understands which elements need them (buttons, inputs, links, modals, key containers) and which are just decorative layout that should be left alone. Running it before committing takes seconds and means you are not pushing a component with gaps in test coverage.",
         },
         {
             type: 'code',
@@ -181,7 +181,7 @@ Action: Safe to dismiss. Suggested reply drafted.`,
         {
             type: 'paragraph',
             content:
-                "There is also a proactive versus reactive distinction. Catching a missing data-qa-id before you open the PR takes one second. Fielding a Qodo comment about it after the fact, explaining it to reviewers, and pushing a fixup commit takes five minutes. The /qa-audit command moves that work earlier in the cycle where it costs less. The /pr command does the same for missing context: write a real description once, before Qodo and your reviewers ever see the PR.",
+                "There is also a timing dimension. Running /qa-audit before you commit and catching a missing data-qa-id takes one second. Pushing with a gap, having a reviewer flag it, and pushing a fixup commit takes five minutes. Same for context: write a real PR description once with /pr, before Qodo and your reviewers ever see the branch, and that whole category of feedback disappears.",
         },
         {
             type: 'heading',
