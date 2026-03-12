@@ -2,6 +2,7 @@ import type { Article } from '@/types/article'
 import article202503 from './2026-03-the-first-commit'
 import article202603 from './2026-03-claude-md'
 import article202603b from './2026-03-ai-assistant-setup'
+import article202603c from './2026-03-slash-commands-qodo'
 import article202604 from './2026-04-custom-agents'
 import article202604b from './2026-04-composables-in-depth'
 import article202605 from './2026-05-ai-code-review'
@@ -18,6 +19,7 @@ const articles: Article[] = [
     article202503,
     article202603,
     article202603b,
+    article202603c,
     article202604,
     article202604b,
     article202605,
