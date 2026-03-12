@@ -10,7 +10,7 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
     <div class="hero__content">
       <p class="hero__eyebrow">
         <span class="hero__eyebrow-dot" aria-hidden="true" />
-        Monthly knowledge-sharing by Nick
+        Knowledge-sharing by Nick
       </p>
 
       <h1 id="hero-heading" class="hero__title">
@@ -19,8 +19,8 @@ import BlobGradient from '@/components/ui/BlobGradient.vue'
       </h1>
 
       <p class="hero__description">
-        One article a month on Vue.js patterns, AI-assisted development workflows,
-        and building things that last. Committed, not cached.
+        Vue.js patterns, AI-assisted development workflows, and building things that last.
+        Committed, not cached. AI-assisted and proud of it.
       </p>
 
       <div class="hero__badges" aria-label="Topics covered">
