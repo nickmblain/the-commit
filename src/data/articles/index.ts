@@ -14,8 +14,9 @@ import article202610 from './2026-10-technical-writing'
 import article202611 from './2026-11-vue-dotnet'
 import article202612 from './2026-12-year-in-review'
 
-// Add new articles here, newest first by convention, sorted by date below
-const articles: Article[] = [
+// Add new articles here, newest first by convention, sorted by date below.
+// Exported raw so the build can generate the public feed.json from it.
+export const articles: Article[] = [
     article202503,
     article202603,
     article202603b,

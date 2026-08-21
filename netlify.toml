@@ -2,6 +2,13 @@
   command = "npm run build"
   publish = "dist"
 
+# feed.json is public article metadata consumed cross-origin by the portfolio
+[[headers]]
+  for = "/feed.json"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
